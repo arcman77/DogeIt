@@ -1,18 +1,22 @@
 class MainController < ApplicationController
 	def index
+		if params[:id]
+			@current_image = Photo.find(params[:id])
+		else
+			@current_image = Photo.last
+		end
 		@voted = Vote.already_voted?(request.remote_ip)
 		@image = Photo.new
-		@current_image = Photo.last
 	end
 
 	def create
-		@photo = Photo.new(photo_params)	
+		@photo = Photo.new(photo_params)
 		@photo.ip = request.remote_ip
 		if params[:photo][:image]
 			@photo.caption = nil if @photo.caption == ""
 			Vote.clear_votes if @photo.save
 		end
-		redirect_to '/'
+		redirect_to '/?id='+@photo.id.to_s
 	end
 
 	def keep

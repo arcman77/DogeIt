@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/' => 'main#create'
   post '/up' => 'main#keep'
   post '/down' => 'main#kill'
+  resources  :photo, only: [:destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

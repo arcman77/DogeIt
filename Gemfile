@@ -35,6 +35,8 @@ gem 'rails_12factor'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 
+gem 'dogeify'
+gem 'puma'
 source 'https://rails-assets.org' do
 	gem 'rails-assets-tether', '>= 1.1.0'
 end
