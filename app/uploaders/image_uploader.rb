@@ -49,7 +49,7 @@ class ImageUploader < CarrierWave::Uploader::Base
             c.fill "#{COLOR_ARRAY[index % COLOR_ARRAY.length]}"
             c.annotate "#{0},#{0},#{0},#{700}", phrase
           else
-            rotation = (0..45).to_a.sample*(-1)**index
+            rotation = (0..45).to_a.sample*((-1)**index)
             c.fill "#{COLOR_ARRAY[index % COLOR_ARRAY.length]}"
             c.annotate "#{rotation},#{rotation},#{coord[0]},#{coord[1]}", phrase
           end
