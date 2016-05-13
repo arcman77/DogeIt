@@ -42,7 +42,7 @@ class ImageUploader < CarrierWave::Uploader::Base
         phrases = model.doge_array.sample(9)
         phrases.each_with_index do |phrase,index|
           coord = coords.pop
-          c.pointsize "30"
+          c.pointsize "#{30 + rand(10)}"
           c.stroke "black"
           if index == phrases.length - 1
             c.pointsize "50"
